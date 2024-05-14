@@ -28,7 +28,7 @@ public class KeyboardController implements Controller, KeyListener {
     @Override
     public void alterarInput(String input) {
         numeroAtual.append(input);
-        System.out.println("Input via Mouse: " + numeroAtual);
+        System.out.println("numero mouse: " + numeroAtual);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class KeyboardController implements Controller, KeyListener {
         char keyChar = e.getKeyChar();
         if (Character.isDigit(keyChar)) {
             alterarInput(String.valueOf(Character.getNumericValue(keyChar)));
-            view.atualizarDisplay(numeroAtual.toString());  // Atualiza o display diretamente
+            view.atualizarDisplay(numeroAtual.toString());
         } else {
             switch (keyChar) {
                 case '+':
@@ -47,7 +47,7 @@ public class KeyboardController implements Controller, KeyListener {
                         enviarNumeroAtualParaModelo();
                     }
                     model.receberOperador(keyChar);
-                    view.atualizarDisplay(numeroAtual.toString() + keyChar); // Atualiza display com o operador
+                    view.atualizarDisplay(numeroAtual.toString() + keyChar);
                     break;
                 case '=':
                 case KeyEvent.VK_ENTER:

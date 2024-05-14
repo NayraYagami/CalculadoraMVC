@@ -43,14 +43,16 @@ public class CalculadoraModel implements Model {
         System.out.println("Operando atual" + resultado + "Lastre" + operando);
         if (this.operador != ' ') {
             calcular();
+        } else if (resultado != 0.0) {
+            this.operando = 0;
+            this.operador = operador;
+            return;
         } else {
             resultado = operando;
         }
-//        resultado = (resultado == 0 && operando != 0) ? operando : resultado;        
 
         this.operando = 0;
         this.operador = operador;
-//        notifyAllSubscribers();
     }
 
     @Override
