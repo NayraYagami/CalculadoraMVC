@@ -4,10 +4,8 @@
  */
 package view;
 
-import controller.KeyboardController;
 import controller.MouseController;
 import interfaces.Controller;
-import interfaces.Publisher;
 import interfaces.View;
 import java.awt.event.KeyListener;
 
@@ -57,17 +55,13 @@ public class SimpleView extends javax.swing.JFrame implements View {
             jtfResultado.setText(display + value);
         }
 
-        if (mouseController instanceof MouseController) {
-            ((MouseController) mouseController).alterarInput(value);  // Apenas o último dígito é passado
-        }
+        mouseController.alterarInput(value);
     }
 
     private void AdicionarOperador(char operador) {
         String display = jtfResultado.getText();
         if (!ultimoCharIsOperador(display)) {
-            if (mouseController instanceof MouseController) {
-                ((MouseController) mouseController).alterarOperador(operador);
-            }
+            mouseController.alterarOperador(operador);
             jtfResultado.setText(display + operador);
         }
     }
@@ -78,15 +72,11 @@ public class SimpleView extends javax.swing.JFrame implements View {
     }
 
     private void calcular() {
-        if (mouseController instanceof MouseController) {
-            ((MouseController) mouseController).calcular();
-        }
+        mouseController.calcular();
     }
 
     private void limparDisplay() {
-        if (mouseController instanceof MouseController) {
-            ((MouseController) mouseController).limpar();
-        }
+        mouseController.limpar();
         jtfResultado.setText("0");
     }
 
@@ -299,10 +289,5 @@ public class SimpleView extends javax.swing.JFrame implements View {
     private javax.swing.JButton btnSomar;
     private javax.swing.JTextField jtfResultado;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void observar(Publisher coisa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
 }

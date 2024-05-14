@@ -81,7 +81,7 @@ public class KeyboardController implements Controller, KeyListener {
         double numero = Double.parseDouble(numeroAtual.toString());
         model.receberInput(numero);
         numeroAtual.setLength(0);
-        System.out.println("Enviando para o modelo: " + numero);
+        System.out.println("mandando para a model: " + numero);
     }
 
     @Override

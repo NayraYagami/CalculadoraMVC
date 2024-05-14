@@ -10,7 +10,5 @@ package interfaces;
  */
 public interface Publisher {
 
-//    public void registrarSubscriber(Subscriber subscriber);
-
     public void avisar(Subscriber subscriber);
 }

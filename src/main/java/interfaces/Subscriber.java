@@ -9,6 +9,5 @@ package interfaces;
  * @author Usuário
  */
 public interface Subscriber {
-    public void observar(Publisher coisa);
     public void receberAviso(double dado); 
 }
