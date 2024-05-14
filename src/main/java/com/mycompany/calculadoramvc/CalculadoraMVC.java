@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 package com.mycompany.calculadoramvc;
+
 import controller.KeyboardController;
 import controller.MouseController;
 import interfaces.Controller;
@@ -20,7 +21,7 @@ public class CalculadoraMVC {
     public static void main(String[] args) {
         Model model = new CalculadoraModel();
         View view = new SimpleView();
-         Controller mouseController = new MouseController(model);
+        Controller mouseController = new MouseController(model);
         Controller keyboardController = new KeyboardController(model, view);
         model.addView(view);
         view.addControllers(mouseController, keyboardController);

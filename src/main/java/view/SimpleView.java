@@ -4,7 +4,6 @@
  */
 package view;
 
-import controller.MouseController;
 import interfaces.Controller;
 import interfaces.View;
 import java.awt.event.KeyListener;

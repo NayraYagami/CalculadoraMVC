@@ -33,14 +33,11 @@ public class CalculadoraModel implements Model {
 
     @Override
     public void receberInput(double input) {
-        System.out.println("Aqui no receber: " + input);
         operando = input;
     }
 
     @Override
     public void receberOperador(char operador) {
-
-        System.out.println("resultado atual" + resultado + "oper" + operando);
         if (this.operador != ' ') {
             calcular();
         } else if (resultado != 0.0) {
@@ -78,7 +75,6 @@ public class CalculadoraModel implements Model {
         operando = 0;
         operador = ' ';
         notifyAllSubscribers();
-        System.out.println("result" + resultado);
     }
 
     @Override

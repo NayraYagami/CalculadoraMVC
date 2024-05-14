@@ -28,15 +28,15 @@ public class KeyboardController implements Controller, KeyListener {
     @Override
     public void alterarInput(String input) {
         numeroAtual.append(input);
-        System.out.println("numero mouse: " + numeroAtual);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         char keyChar = e.getKeyChar();
         if (Character.isDigit(keyChar)) {
-            alterarInput(String.valueOf(Character.getNumericValue(keyChar)));
-            view.atualizarDisplay(numeroAtual.toString());
+            String numeroInput = String.valueOf(Character.getNumericValue(keyChar));
+            alterarInput(numeroInput);
+            view.atualizarDisplay(numeroInput);
         } else {
             switch (keyChar) {
                 case '+':
@@ -81,7 +81,6 @@ public class KeyboardController implements Controller, KeyListener {
         double numero = Double.parseDouble(numeroAtual.toString());
         model.receberInput(numero);
         numeroAtual.setLength(0);
-        System.out.println("mandando para a model: " + numero);
     }
 
     @Override

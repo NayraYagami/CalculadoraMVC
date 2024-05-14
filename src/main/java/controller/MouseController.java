@@ -24,7 +24,6 @@ public class MouseController implements Controller {
     @Override
     public void alterarInput(String input) {
         numeroAtual.append(input);
-        System.out.println("numero mouse: " + numeroAtual);
     }
 
     @Override
