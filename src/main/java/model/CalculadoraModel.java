@@ -46,6 +46,7 @@ public class CalculadoraModel implements Model {
         } else {
             resultado = operando;
         }
+//        resultado = (resultado == 0 && operando != 0) ? operando : resultado;        
 
         this.operando = 0;
         this.operador = operador;

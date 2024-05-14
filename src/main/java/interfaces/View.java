@@ -11,5 +11,7 @@ package interfaces;
 public interface View extends Subscriber{
 
     public void addControllers(Controller mouseController, Controller keyboardController);
+
+    public void atualizarDisplay(String string);
     
 }

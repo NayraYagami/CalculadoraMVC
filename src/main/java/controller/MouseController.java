@@ -47,7 +47,6 @@ public class MouseController implements Controller {
         double numero = Double.parseDouble(numeroAtual.toString());
         model.receberInput(numero);
         numeroAtual.setLength(0);
-        System.out.println("Enviando para o modelo: " + numero);
     }
 
     @Override

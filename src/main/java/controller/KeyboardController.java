@@ -8,6 +8,7 @@ import interfaces.Controller;
 import interfaces.Model;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import interfaces.View;
 
 /**
  *
@@ -16,10 +17,12 @@ import java.awt.event.KeyListener;
 public class KeyboardController implements Controller, KeyListener {
 
     private Model model;
+    private View view;
     private StringBuilder numeroAtual = new StringBuilder();
 
-    public KeyboardController(Model model) {
+    public KeyboardController(Model model, View view) {
         this.model = model;
+        this.view = view;
     }
 
     @Override
@@ -33,19 +36,18 @@ public class KeyboardController implements Controller, KeyListener {
         char keyChar = e.getKeyChar();
         if (Character.isDigit(keyChar)) {
             alterarInput(String.valueOf(Character.getNumericValue(keyChar)));
+            view.atualizarDisplay(numeroAtual.toString());  // Atualiza o display diretamente
         } else {
             switch (keyChar) {
                 case '+':
-                    alterarOperador('+');
-                    break;
                 case '-':
-                    alterarOperador('-');
-                    break;
                 case '*':
-                    alterarOperador('*');
-                    break;
                 case '/':
-                    alterarOperador('/');
+                    if (numeroAtual.length() > 0) {
+                        enviarNumeroAtualParaModelo();
+                    }
+                    model.receberOperador(keyChar);
+                    view.atualizarDisplay(numeroAtual.toString() + keyChar); // Atualiza display com o operador
                     break;
                 case '=':
                 case KeyEvent.VK_ENTER:

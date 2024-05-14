@@ -44,6 +44,7 @@ public class SimpleView extends javax.swing.JFrame implements View {
         btnSomar.addActionListener(e -> AdicionarOperador('+'));
         btnDiminuir.addActionListener(e -> AdicionarOperador('-'));
         btnMultiplicar.addActionListener(e -> AdicionarOperador('*'));
+        btnDividir.addActionListener(e -> AdicionarOperador('/'));
         btnIgual.addActionListener(e -> calcular());
         btnLimpar.addActionListener(e -> limparDisplay());
     }
@@ -102,6 +103,15 @@ public class SimpleView extends javax.swing.JFrame implements View {
     @Override
     public void receberAviso(double dado) {
         jtfResultado.setText(String.valueOf(dado));
+    }
+
+    @Override
+    public void atualizarDisplay(String texto) {
+        if (jtfResultado.getText().equals("0.0") || jtfResultado.getText().equals("0")) {
+            jtfResultado.setText(texto);
+        } else {
+            jtfResultado.setText(jtfResultado.getText() + texto);
+        }
     }
 
     /**

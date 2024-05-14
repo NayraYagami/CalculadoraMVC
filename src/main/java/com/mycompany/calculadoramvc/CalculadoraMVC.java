@@ -21,7 +21,7 @@ public class CalculadoraMVC {
         Model model = new CalculadoraModel();
         View view = new SimpleView();
          Controller mouseController = new MouseController(model);
-        Controller keyboardController = new KeyboardController(model);
+        Controller keyboardController = new KeyboardController(model, view);
         model.addView(view);
         view.addControllers(mouseController, keyboardController);
     }
